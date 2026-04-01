@@ -48,9 +48,10 @@ func Slices() {
 	slice2 := slice1   // slice2 referencia o mesmo array subjacente que slice1
 
 	arr[0] = "golang"
+	fmt.Printf("\tQuantidade de itens em slice1: %d; Capacidade de slice1: %d\n", len(slice1), cap(slice1))
 	fmt.Printf("\tslice1=%v; slice2=%v\n", slice1, slice2)
 
-	fmt.Printf("\t%s\n", strings.Join(slice2, " "))
+	fmt.Printf("\tJoinned slice2: %s\n", strings.Join(slice2, " "))
 
 	for i, word := range slice1 {
 		fmt.Printf("\tindex=%d, word=%s\n", i, word)
@@ -71,6 +72,7 @@ func Maps() {
 		"Ana":  25,
 		"João": 20,
 	}
+	fmt.Printf("\tQuantidade de chaves em ages: %d\n", len(ages))
 	fmt.Printf("\tages=%v\n", ages)
 
 	println("\tAdicionando chave 'Maria'")

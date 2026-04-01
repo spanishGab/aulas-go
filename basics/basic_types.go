@@ -65,20 +65,17 @@ func Strings() {
 	var a string = "Hello, World!"
 
 	// strings são imutáveis
-	b := a                    // não é uma cópia do valor de a
-	a += " I am learning Go." // porém uma VARIÁVEL do tipo string é mutável
+	b := a                    // não é uma cópia do valor de a, é apenas uma nova referência para a mesma string
+	a += " I am learning Go." // porém uma VARIÁVEL do tipo string é mutável (já não referencia a mesma string que b)
 	fmt.Printf("\ta=%s; b=%s\n", a, b)
 
 	// a[0] = '.' // erro: strings são imutáveis
-	IAM := a[len(b) : len(b)+6]
 
-	// -------------------------------------------------------------
-	// |H|E|L|L|O|,| |W|O|R|L|D|!|I| |A|M| |L|E|A|R|N|I|N|G| |G|O|.|
-	// -------------------------------------------------------------
+	sliced := a[13:19]  // apenas referencia a string original, sem criar uma nova string
 	welcome := a[:13]   // apenas referencia a string original, sem criar uma nova string
 	education := a[13:] // apenas referencia a string original, sem criar uma nova string
 
-	fmt.Printf("\tIAM=%q; welcome=%q; education=%q\n", strings.Trim(IAM, " "), welcome, education)
+	fmt.Printf("\tsliced=%q; welcome=%q; education=%q\n", strings.Trim(sliced, " "), welcome, education)
 
 	rawLiteral := `{
 	  "id": 1,
