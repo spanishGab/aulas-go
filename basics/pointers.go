@@ -12,7 +12,7 @@ func Pointers() {
 
 	fmt.Printf("\ta=%d; &a=%p == p=%p\n", a, &a, p)
 
-	increment(p)
+	increment(&a)
 	fmt.Printf("\tDepois de increment(): a=%d; &a=%p == p=%p\n", a, &a, p)
 
 	// o elemento de um array é essencialemente como uma variável, portanto podemos acessar seu endereço

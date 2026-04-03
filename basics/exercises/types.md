@@ -2,17 +2,46 @@
 
 Crie um programa que recebe como entrada quatro parâmetros: uma string (sum, subtract, multiply, divide), dois números inteiros, e um ponteiro para inteiro.
 
-O programa deve executar a operação matemática solicitada nos dois primeiros números dados (para divisão, considere que o primeiro número é o dividendo, e o segundo o divisor) e ela deve armazenar o resultado no ponteiro (quarto parâmetro da função).
+O programa deve executar a operação matemática solicitada nos dois primeiros números dados (para divisão e subtração, considere a ordem dos parametros para realizar a operação (p. ex.: (a / b), (a - b))) e ela deve armazenar o resultado no ponteiro (quarto parâmetro da função).
 
 ### Exemplo
 
-Considere a entrada `sum, 1, 2, *result`. Aí fim da operação, o valor da variável result deve ser igual a 3.
+Considere a entrada `sum, 1, 2, *result`. Ao fim da operação, o valor da variável result deve ser igual a 3.
 
-### Código inicial da função main
+### Código inicial da função _main_
 
-Utilize a seguinte função main para iniciar seu programa. Não é necessário fazer alterações nele, apenas crie a função denominada `Calculate`. Pode criá-la em um pacote separado ou dentro da própria função main:
+Utilize a seguinte função _main_ para iniciar seu programa. Não é necessário fazer alterações nele, apenas crie a função denominada `Calculate`. Pode criá-la em um pacote separado ou dentro da própria função _main_:
 
+```go
+package main
 
+type Entries struct {
+	Operation string
+	Operand1  int
+	Operand2  int
+}
+
+var calculatorEntries []Entries = []Entries{
+	{Operation: "sum", Operand1: 2, Operand2: 3},
+	{Operation: "subtract", Operand1: 5, Operand2: 2},
+	{Operation: "multiply", Operand1: 3, Operand2: 4},
+	{Operation: "divide", Operand1: 10, Operand2: 2},
+	{Operation: "sum", Operand1: -10, Operand2: 2},
+	// {Operation: "divide", Operand1: 10, Operand2: 0}, // descomente caso queira se aventurar tratando o erro
+}
+
+func main() {
+	total := 0
+	operationResult := 0
+	for _, entry := range calculatorEntries {
+		Calculate(entry.Operation, entry.Operand1, entry.Operand2, &operationResult)
+		total += operationResult
+	}
+	println("Total:", total)
+}
+```
+
+> Bônus: descomente a última linha das 'entries' caso queira entender como tratar erros em Go. Pesquise sobre a função panic() e sobre tratamento de erros.
 
 
 ## Avaliador de despesas
@@ -59,4 +88,4 @@ Dado este cenário, desenvolva um programa que receba como entrada três valores
 
 Como saída, o programa deve retornar um mapa onde a as chaves são os nomes de cada categoria e os valores são uma das seguintes opções: ("Dentro do limite", "Estourou o limite")
 
-> Bônus: Imprima o resultado em formato de tabela no terminal, com os espaçamentos adequados.
+> Bônus: Imprima o resultado em formato de tabela no terminal, com os espaçamentos adequados. Comece estudando sobre o pacote https://pkg.go.dev/fmt para entender formas de fazer isso.

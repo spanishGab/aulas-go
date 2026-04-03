@@ -11,10 +11,10 @@ func Integers() {
 	// O valor após o nome do tipo indica quantos bits são utilizados para armazenar o valor.
 	// Quanto mais bits, maior o intervalo de valores que podem ser representados.
 	// int8, int16, int32, int64
-	// int // permite que o compilador escolha quantos bits serão utilizados
 	// uint8, uint16, uint32, uint64
-	// uint // permite que o compilador escolha quantos bits serão utilizados
 
+	// int // permite que o compilador escolha quantos bits serão utilizados
+	// uint // permite que o compilador escolha quantos bits serão utilizados
 	// byte // alias para uint8. Utilizado para enfatizar que o valor é um dado bruto, não um número
 	// rune // alias para int32. Representa um ponto de código Unicode
 
@@ -51,7 +51,7 @@ func Booleans() {
 	// var c int = 1
 	// if c { // valor deve ser um booleano
 	// }
-	// for c { // valor deve ser um booleano
+	// for a { // valor deve ser um booleano
 	// }
 
 	fmt.Printf("\ta=%t; b=%t\n", a, b)
