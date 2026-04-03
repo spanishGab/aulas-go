@@ -41,7 +41,7 @@ func main() {
 }
 ```
 
-> Bônus: descomente a última linha das 'entries' caso queira entender como tratar erros em Go. Pesquise sobre a função panic() e sobre tratamento de erros.
+> Bônus: descomente a última linha das 'calculatorEntries' caso queira entender como tratar erros em Go. Pesquise sobre a função panic() e sobre tratamento de erros.
 
 
 ## Avaliador de despesas
