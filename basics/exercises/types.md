@@ -1,3 +1,20 @@
+## Calculadora
+
+Crie um programa que recebe como entrada quatro parâmetros: uma string (sum, subtract, multiply, divide), dois números inteiros, e um ponteiro para inteiro.
+
+O programa deve executar a operação matemática solicitada nos dois primeiros números dados (para divisão, considere que o primeiro número é o dividendo, e o segundo o divisor) e ela deve armazenar o resultado no ponteiro (quarto parâmetro da função).
+
+### Exemplo
+
+Considere a entrada `sum, 1, 2, *result`. Aí fim da operação, o valor da variável result deve ser igual a 3.
+
+### Código inicial da função main
+
+Utilize a seguinte função main para iniciar seu programa. Não é necessário fazer alterações nele, apenas crie a função denominada `Calculate`. Pode criá-la em um pacote separado ou dentro da própria função main:
+
+
+
+
 ## Avaliador de despesas
 
 Suponha que você precisa construir a seguinte feature de um sistema de finanças pessoais:
