@@ -44,20 +44,20 @@ func Slices() {
 	// []type
 
 	arr := [5]string{"go", "is", "funny", "and", "powerful"}
-	slice1 := arr[0:3] // cria um slice que referencia os elementos do índice 1 ao 3 do array
+	slice1 := arr[0:3] // cria um slice que referencia os elementos do índice 0 ao 2 do array
 	slice2 := slice1   // slice2 referencia o mesmo array subjacente que slice1
 
 	arr[0] = "golang"
 	fmt.Printf("\tQuantidade de itens em slice1: %d; Capacidade de slice1: %d\n", len(slice1), cap(slice1))
 	fmt.Printf("\tslice1=%v; slice2=%v\n", slice1, slice2)
 
-	fmt.Printf("\tJoinned slice2: %s\n", strings.Join(slice2, " "))
+	fmt.Printf("\tJoinned slice2: %s\n", strings.Join(slice2, ","))
 
 	for i, word := range slice1 {
 		fmt.Printf("\tindex=%d, word=%s\n", i, word)
 	}
 
-	var slice3 = make([]string, 3) // cria um slice de strings com comprimento 3 e capacidade 3
+	var slice3 = make([]int, 3) // cria um slice de strings com comprimento 3 e capacidade 3
 	fmt.Printf("\tslice3=%v", slice3)
 	println()
 }

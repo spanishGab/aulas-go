@@ -10,7 +10,7 @@ Considere a entrada `sum, 1, 2, *result`. Ao fim da operação, o valor da vari�
 
 ### Código inicial da função _main_
 
-Utilize a seguinte função _main_ para iniciar seu programa. Não é necessário fazer alterações nele, apenas crie a função denominada `Calculate`. Pode criá-la em um pacote separado ou dentro da própria função _main_:
+Utilize a seguinte função _main_ para iniciar seu programa. Não é necessário fazer alterações nele, apenas crie a função denominada `Calculate`. Pode criá-la em um pacote separado ou dentro do próprio pacote _main_:
 
 ```go
 package main

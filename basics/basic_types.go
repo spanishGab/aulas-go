@@ -20,7 +20,7 @@ func Integers() {
 
 	var a int = 10
 	var b uint = 20
-	var c byte = 255
+	var c byte = 10
 	var d rune = 'A'
 
 	fmt.Printf("\ta=%d; b=%d; (c=%08[3]b OR c=%[3]d); (d=%[4]d OR d=%[4]c OR d=%[4]q)\n", a, b, c, d)
@@ -61,7 +61,7 @@ func Booleans() {
 func Strings() {
 	println("STRINGS:")
 
-	// string é uma sequência de bytes (unicode codificado em UTF-8), ou seja, cada caractere pode ocupar mais de um byte.
+	// string é uma sequência de runes (unicode codificado em UTF-8), ou seja, cada caractere ocupa 32 bits.
 	var a string = "Hello, World!"
 
 	// strings são imutáveis
