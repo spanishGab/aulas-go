@@ -3,7 +3,6 @@ package basics
 import (
 	"fmt"
 	"strings"
-	"time"
 )
 
 func Arrays() {
@@ -96,33 +95,4 @@ func Maps() {
 		fmt.Println("\tChave 'Luna' não existe")
 	}
 	println()
-}
-
-func Structs() {
-	// Uma struct é um tipo de dado composto que agrega multiplos valores de tipos diferentes
-	type Animal struct {
-		Breed       string
-		Name        string
-		Age         int
-		IsCastrated bool
-		Vaccines    map[string]time.Time
-	}
-
-	animal := Animal{
-		Breed:       "Shihtzu",
-		Name:        "Thor",
-		Age:         14,
-		IsCastrated: true,
-		Vaccines: map[string]time.Time{
-			"rage": time.Now(),
-		},
-	}
-	fmt.Printf("animal=%#v", animal)
-
-	thor := &animal
-
-	animal.Breed = "No Breed"
-	animal.Name = "Safira"
-	fmt.Printf("thor.Name=%s, animal.Name=%s", thor.Name, animal.Name)
-
 }
