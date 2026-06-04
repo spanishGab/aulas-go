@@ -89,3 +89,7 @@ Dado este cenário, desenvolva um programa que receba como entrada três valores
 Como saída, o programa deve retornar um mapa onde a as chaves são os nomes de cada categoria e os valores são uma das seguintes opções: ("Dentro do limite", "Estourou o limite")
 
 > Bônus: Imprima o resultado em formato de tabela no terminal, com os espaçamentos adequados. Comece estudando sobre o pacote https://pkg.go.dev/fmt para entender formas de fazer isso.
+
+## Avaliador de despesas 2.0
+
+Agora você deve refatorar o código do avaliador de despesas para utilizar structs.

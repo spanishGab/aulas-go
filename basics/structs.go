@@ -30,8 +30,8 @@ type Wheel struct {
 }
 
 func Structs() {
-	structBasics()
-	structComparison()
+	// structBasics()
+	// structComparison()
 	structComposition()
 }
 
@@ -47,13 +47,14 @@ func structBasics() {
 	}
 	// Por convenção, structs muito grandes são passadas como ponteiro para funções
 
-	fmt.Printf("animal=%#v\n", String(&animal))
+	fmt.Printf("animal=%s\n", animalString(&animal))
 
 	thor := &animal
 
-	animal.Breed = "No Breed"
-	animal.Name = "Safira"
-	fmt.Printf("thor.Name=%s, animal.Name=%s\n", thor.Name, animal.Name)
+	thor.Breed = "No Breed"
+	thor.Name = "Safira"
+	fmt.Printf("thor=%s\n", animalString(thor))
+	fmt.Printf("animal=%s\n", animalString(&animal))
 }
 
 func structComparison() {
@@ -69,8 +70,8 @@ func structComposition() {
 	fmt.Printf("wheel=%#v\n", wheel)
 }
 
-func String(animal *Animal) string {
-	return fmt.Sprintf("Breed: %s, Name: %s, Age: %d, IsCastrated: %t, Vacccines: %#v\n",
+func animalString(animal *Animal) string {
+	return fmt.Sprintf("Breed: %s, Name: %s, Age: %d, IsCastrated: %t, Vacccines: %#v",
 		animal.Breed,
 		animal.Name,
 		animal.Age,
