@@ -23,25 +23,23 @@ func (h HTTPMethod) String() string {
 
 type URLParams map[string][]string
 
-func (u *URLParams) Add(name string, value string) {
-	params := *u
-	if _, ok := params[name]; ok {
-		params[name] = append(params[name], value)
+func (u URLParams) Add(name string, value string) {
+	if _, ok := u[name]; ok {
+		u[name] = append(u[name], value)
 		return
 	}
-	params[name] = []string{value}
+	u[name] = []string{value}
 }
 
-func (u *URLParams) Get(name string) []string {
-	param, _ := (*u)[name]
+func (u URLParams) Get(name string) []string {
+	param, _ := u[name]
 	return param
 }
 
 // Não utilizar como referência pois não estamos fazendo a substituição correta
-func (u *URLParams) String() string {
-	params := *u
+func (u URLParams) String() string {
 	formattedParams := strings.Builder{}
-	for k, v := range params {
+	for k, v := range u {
 		if _, err := fmt.Fprintf(&formattedParams, "%s=%s&", k, strings.Join(v, ",")); err != nil {
 			log.Fatalf("ERROR: %s", err)
 		}
@@ -63,7 +61,19 @@ func NewURL(host string, path string, params URLParams) *URL {
 	}
 }
 
-func (u URL) String() string {
+func (u *URL) Host() string {
+	return u.host
+}
+
+func (u *URL) Path() string {
+	return u.path
+}
+
+func (u *URL) Params() *URLParams {
+	return &u.params
+}
+
+func (u *URL) String() string {
 	return fmt.Sprintf("%s%s?%s", u.host, u.path, u.params.String())
 }
 
@@ -81,7 +91,7 @@ func NewRequest(method HTTPMethod, url URL) *Request {
 }
 
 func (r *Request) Execute() {
-	log.Printf("INFO: %s %s", r.method, r.url)
+	log.Printf("INFO: %s %s", r.method, &r.url)
 
 	req, err := http.NewRequest(r.method.String(), r.url.String(), nil)
 	if err != nil {
