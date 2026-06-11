@@ -69,8 +69,8 @@ func (u *URL) Path() string {
 	return u.path
 }
 
-func (u *URL) Params() *URLParams {
-	return &u.params
+func (u *URL) Params() URLParams {
+	return u.params
 }
 
 func (u *URL) String() string {
@@ -87,6 +87,7 @@ func NewRequest(method HTTPMethod, url URL) *Request {
 	return &Request{
 		url:    url,
 		method: method,
+		client: http.Client{},
 	}
 }
 
