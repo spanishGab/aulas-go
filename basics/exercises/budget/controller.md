@@ -8,8 +8,8 @@ Você deverá construir um programa que, dado um valor de entrada, retorne uma s
 * Activate(): ativa o budget para uso
 * Pause(): pausa o budget
 * Unpause(): despausa o budget
-* Spent(int): retira dinheiro do budget
-* Finish(): inabilita o budget para uso
+* Spend(int): retira dinheiro do budget
+* Finish(): desabilita o budget para uso
 * Recharge(int): recarrega o budget
 * FullRecharge(): recarrega o budget até seu valor máximo
 * Next(): passe o budget para o próximo estado
