@@ -93,9 +93,3 @@ Como saída, o programa deve retornar um mapa onde a as chaves são os nomes de 
 ## Avaliador de despesas 2.0
 
 Agora você deve refatorar o código do avaliador de despesas para utilizar structs.
-
-## Avaliador de despesas 3.0
-
-Agora você deve refatorar o cõdigo do avaliador de despesas para utilizar métodos.
-
-Além disso, adicione uma nova coluna ao resultado final da avaliação. Esta coluna será chamada de "Percentual da receita", ela vai informar quantos porcento do valor da receita aquele gasto representou.
