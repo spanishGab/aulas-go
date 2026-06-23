@@ -5,15 +5,13 @@ Um budget é uma quantidade determinada de dinheiro destinada a uma operação.
 
 Você deverá construir um programa que, dado um valor de entrada, retorne uma struct capaz de executar os seguintes métodos:
 
-* Activate(): ativa o budget para uso
-* Pause(): pausa o budget
-* Unpause(): despausa o budget
-* Spend(int): retira dinheiro do budget
-* Finish(): desabilita o budget para uso
-* Recharge(int): recarrega o budget
-* FullRecharge(): recarrega o budget até seu valor máximo
-* Next(): passe o budget para o próximo estado
-* Previous(): passe o budget para o estado anterior
+* Activate() error: ativa o budget para uso
+* Pause() error: pausa o budget
+* Unpause() error: despausa o budget
+* Spend(int) error: retira dinheiro do budget
+* Finish() error: desabilita o budget para uso
+* Recharge(int) error: recarrega o budget
+* FullRecharge() error: recarrega o budget até seu valor máximo
 * String() string: retorna a representação em string do budget
 
 O budget deverá ter um valor monetário (incluindo o tipo de moeda em que este valor está) do tipo inteiro que representa seu valor atual; e um valor monetário que representa seu valor máximo.
