@@ -12,6 +12,10 @@ const (
 
 type State string
 
+func (s State) String() string {
+	return string(s)
+}
+
 type stateTransitions map[State]struct{}
 
 type stateTransitionManager struct {
