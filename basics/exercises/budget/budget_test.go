@@ -90,13 +90,13 @@ func TestActivate(t *testing.T) {
 		{
 			name: "should not be able to activate an EMPTY budget",
 			budget: Budget{
-				amount:    1000,
+				amount:    0,
 				maxAmount: 5000,
 				currency:  "R$",
 				state:     EmptyState,
 			},
-			expectedState: ActiveState,
-			expectedErr:   false,
+			expectedState: EmptyState,
+			expectedErr:   true,
 		},
 		{
 			name: "should not be able to activate an ACTIVE budget",
