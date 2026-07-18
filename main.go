@@ -3,21 +3,11 @@ package main
 import "aulas/basics"
 
 func main() {
-	params := basics.URLParams{
-		"limit": []string{"5"},
-		"skip":  []string{"0"},
-	}
-	url := basics.NewURL(
-		"https://dummyjson.com",
-		"/products",
-		params,
-	)
+	commaSep := &basics.CommaSeparator{}
+	dotSep := &basics.DotSeparator{}
+	// pipeSep := &basics.PipeSeparator{}
 
-	url.Params().Add("select", "title")
-	url.Params().Add("select", "price")
-	url.Params().Add("select", "description")
-	url.Params().Add("select", "category")
-
-	req := basics.NewRequest(basics.HTTPMethodGet, *url)
-	req.Execute()
+	basics.HandleString("aprender golang é bem legal com vírgulas", commaSep)
+	basics.HandleString("aprender golang é bem legal com pontos", dotSep)
+	// basics.HandleString("aprender golang é bem legal com pontos", pipeSep)
 }

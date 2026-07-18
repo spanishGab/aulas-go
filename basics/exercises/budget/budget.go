@@ -32,18 +32,16 @@ func (b *Budget) Activate() error {
 		nextState = ActiveState
 	}
 
-	if err := stateManager.checkTransition(b.state, nextState); err != nil {
+	if err := b.transitionState(nextState); err != nil {
 		return err
 	}
-	b.state = nextState
 	return nil
 }
 
 func (b *Budget) Pause() error {
-	if err := stateManager.checkTransition(b.state, PausedState); err != nil {
+	if err := b.transitionState(PausedState); err != nil {
 		return err
 	}
-	b.state = PausedState
 	return nil
 }
 
@@ -58,7 +56,9 @@ func (b *Budget) Spend(amount int) error {
 	}
 
 	if spentAmount == 0 {
-		b.state = EmptyState
+		if err := b.transitionState(EmptyState); err != nil {
+			return err
+		}
 	}
 	b.amount = spentAmount
 	return nil
@@ -78,15 +78,16 @@ func (b *Budget) Recharge(amount int) error {
 		return fmt.Errorf("cannot recharge above %d, trying to recharge %d", b.maxAmount, amount)
 	}
 	b.amount = rechargedAmount
-	b.state = ActiveState
+	if err := b.transitionState(ActiveState); err != nil {
+		return err
+	}
 	return nil
 }
 
 func (b *Budget) Finish() error {
-	if err := stateManager.checkTransition(b.state, FinishedState); err != nil {
+	if err := b.transitionState(FinishedState); err != nil {
 		return err
 	}
-	b.state = FinishedState
 	return nil
 }
 
@@ -102,4 +103,12 @@ func (b *Budget) IsActive() bool {
 
 func (b *Budget) IsRechargeable() bool {
 	return b.state == ActiveState || b.state == EmptyState
+}
+
+func (b *Budget) transitionState(to State) error {
+	if err := stateManager.checkTransition(b.state, to); err != nil {
+		return err
+	}
+	b.state = to
+	return nil
 }
