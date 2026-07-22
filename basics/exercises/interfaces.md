@@ -56,3 +56,6 @@ A função `ParseCarsData` tem a seguinte assinatura:
 ```go
 func ParseCarsData(data string, parser DataParser) (Cars, error) {...}
 ```
+
+> Pattern Adapter: https://refactoring.guru/design-patterns/adapter
+> Dica: entender sobre as libs nativas `encoding/json` e `enconding/xml`

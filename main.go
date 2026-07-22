@@ -1,6 +1,8 @@
 package main
 
-import "aulas/basics"
+import (
+	"aulas/basics"
+)
 
 func main() {
 	commaSep := &basics.CommaSeparator{}

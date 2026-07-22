@@ -16,6 +16,9 @@ func (c *CommaSeparator) Separate(value string) string {
 	return strings.Join(strings.Split(value, " "), ",")
 }
 
+func (c *CommaSeparator) Divider() {
+}
+
 type DotSeparator struct {
 }
 
