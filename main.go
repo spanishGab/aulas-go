@@ -1,7 +1,8 @@
 package main
 
-import "aulas/basics/interfaces"
+import "aulas/basics/errorsclass"
 
 func main() {
-	interfaces.ConvertToKilograms()
+	err := errorsclass.FakeInternalServerError()
+	errorsclass.HandleHTTPError(err)
 }

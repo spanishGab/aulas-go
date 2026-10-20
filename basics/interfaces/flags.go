@@ -44,6 +44,7 @@ func KilogramsFlag(name string, value Kilograms, usage string) *Kilograms {
 }
 
 var kilos = KilogramsFlag("kilos", 5.0, "the weight in Kilograms")
+var gramas = flag.Int("gramas", 5, "Peso em gramas")
 
 func ConvertToKilograms() {
 	flag.Parse()
