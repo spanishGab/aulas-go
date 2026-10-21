@@ -3,13 +3,14 @@ package errorsclass
 type HTTPErrorKind int
 
 const (
-	InternalError HTTPErrorKind = iota
-	BusinessError
-	ExternalDependencyError
+	InternalErrorKind HTTPErrorKind = iota
+	BusinessErrorKind
+	ApplicationRuleKind
+	ExternalDependencyErrorKind
 )
 
 func (h HTTPErrorKind) String() string {
-	return [...]string{"InternalError", "BusinessError", "ExternalDependencyError"}[h]
+	return [...]string{"InternalError", "BusinessError", "ApplicationRule", "ExternalDependencyError"}[h]
 }
 
 type HTTPError struct {
@@ -39,7 +40,16 @@ func NewBadRequestError(err error, message string) *HTTPError {
 	return &HTTPError{
 		message: message,
 		code:    400,
-		kind:    BusinessError,
+		kind:    BusinessErrorKind,
+		err:     err,
+	}
+}
+
+func NewTooManyRequestsError(err error, message string) *HTTPError {
+	return &HTTPError{
+		message: message,
+		code:    429,
+		kind:    ApplicationRuleKind,
 		err:     err,
 	}
 }
@@ -48,7 +58,7 @@ func NewUnprocessableEntityError(err error, message string) *HTTPError {
 	return &HTTPError{
 		message: message,
 		code:    422,
-		kind:    BusinessError,
+		kind:    BusinessErrorKind,
 		err:     err,
 	}
 }
@@ -57,7 +67,7 @@ func NewInternalServerError(err error, message string) *HTTPError {
 	return &HTTPError{
 		message: message,
 		code:    500,
-		kind:    InternalError,
+		kind:    InternalErrorKind,
 		err:     err,
 	}
 }

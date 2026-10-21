@@ -6,6 +6,7 @@ var ErrInvalidQueryParam = errors.New("invalid query param error")
 var ErrInvalidRequestBody = errors.New("invalid request body error")
 
 var ErrBusinessRule = errors.New("business rule violation error")
+var ErrApplicationRule = errors.New("application rule violation error")
 
 var ErrInternal = errors.New("internal server error")
 
@@ -19,6 +20,10 @@ func FakeInvalidRequestBodyError() error {
 
 func FakeInvalidRequestError() error {
 	return NewBadRequestError(errors.Join(ErrInvalidQueryParam, ErrInvalidRequestBody), "multiple input errors")
+}
+
+func FakeTooManyRequestsError() error {
+	return NewBadRequestError(ErrApplicationRule, "rate limit exceeded")
 }
 
 func FakeUnprocessableEntityError() error {

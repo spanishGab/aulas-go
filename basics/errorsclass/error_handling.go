@@ -7,11 +7,11 @@ import (
 
 func HandleExactError(err error) {
 	if errors.Is(err, ErrInvalidQueryParam) {
-		fmt.Printf("O query param enviado não é válido: %s", err)
+		fmt.Printf("O query param enviado não é válido: %s\n", err)
 	} else if errors.Is(err, ErrInvalidRequestBody) {
-		fmt.Printf("O request body enviado contém erros: %s", err)
+		fmt.Printf("O request body enviado contém erros: %s\n", err)
 	} else {
-		fmt.Printf("Um erro inesperado aconteceu: %s", err)
+		fmt.Printf("Um erro inesperado aconteceu: %s\n", err)
 	}
 }
 
@@ -20,21 +20,21 @@ func HandleHTTPError(err error) {
 	// err, ok := errors.As(err, &tErr)
 	if err, ok := errors.AsType[*HTTPError](err); ok {
 		if err.Code() == 400 {
-			fmt.Printf("Reavalie os dados de entrada da requisição. O erro %q ocorreu com o código %d e tipo %q. Causa: %s",
+			fmt.Printf("Reavalie os dados de entrada da requisição. O erro %q ocorreu com o código %d e tipo %q. Causa: %s\n",
 				err.Unwrap(),
 				err.Code(),
 				err.Kind(),
 				err.Error(),
 			)
 		} else if err.Code() == 422 {
-			fmt.Printf("Não foi possível concluir a requisição. O erro %q ocorreu com o código %d e tipo %q. Causa: %s",
+			fmt.Printf("Não foi possível concluir a requisição. O erro %q ocorreu com o código %d e tipo %q. Causa: %s\n",
 				err.Unwrap(),
 				err.Code(),
 				err.Kind(),
 				err.Error(),
 			)
 		} else if err.Code() >= 500 {
-			fmt.Printf("O erro %q ocorreu com o código %d e tipo %q",
+			fmt.Printf("O erro %q ocorreu com o código %d e tipo %q\n",
 				err.Unwrap(),
 				err.Code(),
 				err.Kind(),
@@ -42,6 +42,6 @@ func HandleHTTPError(err error) {
 		}
 
 	} else {
-		fmt.Printf("Um erro inesperado aconteceu: %s", err)
+		fmt.Printf("Um erro inesperado aconteceu\n")
 	}
 }
