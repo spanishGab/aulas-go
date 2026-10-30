@@ -44,24 +44,16 @@ Você deve utilizar o seguinte tipo como base para retorno do método `Kind()`:
 type HTTPErrorKind int
 
 const (
-	InternalError HTTPErrorKind = iota
-	BusinessError
-	ExternalDependencyError
+	InternalErrorKind HTTPErrorKind = iota
+	BusinessErrorKind
+	ApplicationRuleKind
+	ExternalDependencyErrorKind
 )
 
 func (h HTTPErrorKind) String() string {
-	return [...]string{"InternalError", "BusinessError", "ExternalDependencyError"}[h]
+	return [...]string{"InternalError", "BusinessError", "ApplicationRule", "ExternalDependencyError"}[h]
 }
 ```
-
-## Mensagens de erro
-
-Você deve utilizar as seguintes mensagens de erro para cada erro que acontecer no servidor:
-
-* 400: 'start' must be a date before 'end'
-* 422: bill amount must be paid in full
-* 429: rate limit exceeded
-* 500: SQL Statement error: 'SELCT' is an invalid statement
 
 ## Referências
 
